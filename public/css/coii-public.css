@@ -1,0 +1,29 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+    body>#coii-dialogue {
+
+        background-color: #ffffff;
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        max-width: 50%;
+        z-index: 99;
+        padding: 5px;
+
+    }
+
+    body>#coii-dialogue button
+    body>#coii-dialogue p
+    {
+        margin: 5px;
+    }
+
+    .entry-content #coii-dialogue {
+
+        background-color: #ffffff;
+        position: relative;
+
+    }
