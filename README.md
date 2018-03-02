@@ -2,14 +2,14 @@
 
 ## COII - Cookie-Opt-In-Interface
 
-Contributors: @nre
-Donate link: https://www.nickyreinert.de/coii
-Tags: tracking, opt-in-interface, cookies
-Requires at least: 4.9.4
-Tested up to: 4.9.4
-Stable tag: 4.9.4
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+* Contributors: @nre
+* Donate link: https://www.nickyreinert.de/coii
+* Tags: tracking, opt-in-interface, cookies
+* Requires at least: 4.9.4
+* Tested up to: 4.9.4
+* Stable tag: 4.9.4
+* License: GPLv3 or later
+* License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 COII offers the visitor of your blog to choose between enabling or disabling tracking by, for example, Google Analytics.
 
