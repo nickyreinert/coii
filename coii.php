@@ -31,11 +31,11 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently pligin version.
+ * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'COII_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -87,7 +87,8 @@ function run_coii() {
 *
 */
 
-function debug($message = NULL, $priority = 1 ){
+function debug_coii($message = NULL, $priority = 1 ){
+	// TODO implement on options page
 	// on settings page, debug level will be defined
 	// MAX_DEBUG_PRIORITY = 0 - no messages at all
 	// MAX_DEBUG_PRIORITY = 1 - errors & warnings only
