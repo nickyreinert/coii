@@ -49,6 +49,33 @@ class Coii_Admin {
 	 */
 	private $version;
 
+		/**
+		 * The default dialogue text
+		 *
+		 * @since  	1.0.0
+		 * @access 	private
+		 * @var  	string 		$default_dialogue_text 	default dialogue text
+		 */
+	private $default_dialogue_text = 'Do you want to allow tracking?';
+
+		/**
+		 * The default text for the accept button
+		 *
+		 * @since  	1.0.0
+		 * @access 	private
+		 * @var  	string 		$default_yes_button_text 	default accept button text
+		 */
+	private $default_yes_button_text = 'yes';
+
+		/**
+		 * The The default text for the disallow button
+		 *
+		 * @since  	1.0.0
+		 * @access 	private
+		 * @var  	string 		$default_no_button_text 	default disallow button text
+		 */
+	private $default_no_button_text = 'no';
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -259,6 +286,13 @@ class Coii_Admin {
 	public function coii_dialogue_text() {
 
 		$dialogue_text = get_option( $this->option_name . '_dialogue', NULL);
+		
+		if ($dialogue_text == '') {
+		
+			$dialogue_text = $this->default_dialogue_text;
+			
+		}
+		
 		echo '<textarea name="' . $this->option_name . '_dialogue' . '" id="' . $this->option_name . '_dialogue' . '" cols="50" rows="10"> ';
 		echo $dialogue_text;
 		echo '</textarea>';
@@ -275,6 +309,12 @@ class Coii_Admin {
 
 		$yes_button_text = get_option( $this->option_name . '_yes_button', NULL);
 
+		if ($yes_button_text == '') {
+		
+			$yes_button_text = $this->default_yes_button_text;
+			
+		}
+		
 		echo '<input type="text" value="'.$yes_button_text.'"name="' . $this->option_name . '_yes_button' . '" id="' . $this->option_name . '_yes_button' . '"/> ';
 	}
 
@@ -287,6 +327,12 @@ class Coii_Admin {
 	public function coii_no_button_text() {
 
 		$no_button_text = get_option( $this->option_name . '_no_button', NULL);
+
+		if ($no_button_text == '') {
+		
+			$no_button_text = $this->default_no_button_text;
+			
+		}		
 
 		echo '<input type="text" value="'.$no_button_text.'" name="' . $this->option_name . '_no_button' . '" id="' . $this->option_name . '_no_button' . '"/> ';
 

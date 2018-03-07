@@ -43,7 +43,7 @@
 
         }
 
-        document.cookie = name+"="+value+expires+"; path=/; domain=development";
+        document.cookie = name+"="+value+expires+"; path=/;";
     }
 
     /**
