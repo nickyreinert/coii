@@ -30,6 +30,16 @@ Besides you can use the shortcode [coii_dialogue] to place the dialogue inside a
 
 ### Changelog
 
+#### 1.0.2
+* fix: wrong domain cookie
+* add: default values for dialogue text, yes-no-buttons 
+
+#### 1.0.1
+* fatal error when installing plugin because hook-function „add“
+requires 6 instead of 4 parameters
+* renamed debug-functions globally
+* changed short description text
+
 #### 1.0 
 * first release with all basic features
 * opt-in dialogue for first-time visitors
