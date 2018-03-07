@@ -1,13 +1,4 @@
-## COII - Cookie-Opt-In-Interface
-
-* Contributors: @nre
-* Donate link: https://www.nickyreinert.de/coii
-* Tags: tracking, opt-in-interface, cookies
-* Requires at least: 4.9.4
-* Tested up to: 4.9.4
-* Stable tag: 4.9.4
-* License: GPLv3 or later
-* License URI: http://www.gnu.org/licenses/gpl-3.0.html
+## COII - Cookie-Opt-In-Interface for Wordpress
 
 COII offers the visitor of your blog to choose between enabling or disabling tracking by, for example, Google Analytics.
 
@@ -26,7 +17,9 @@ Besides you can use the shortcode [coii_dialogue] to place the dialogue inside a
 3. Place the shortcode [coii_dialogue] inside any given page or post, if required
 4. Edit the dialogue text and insert your tracking pixel
 
-### Frequently Asked Questions
+### Known bugs
+
+COII offers default values for the dialogue, but you have to save them for yourself. Go to the settings-page of this plugin (Settings / Cookie-OptIn-Interface) and simply push the save-button. Or edit the message text. 
 
 ### Changelog
 
