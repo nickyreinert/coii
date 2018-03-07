@@ -139,9 +139,11 @@ class Coii_Loader {
 	 * @param     string        $tag           The name of the new shortcode.
 	 * @param     object        $component      A reference to the instance of the object on which the shortcode is defined.
 	 * @param     string        $callback       The name of the function that defines the shortcode.
+
 	 */
 	public function add_shortcode( $tag, $component, $callback) {
-		$this->shortcodes = $this->add( $this->shortcodes, $tag, $component, $callback );
+
+		$this->shortcodes = $this->add( $this->shortcodes, $tag, $component, $callback, NULL, NULL );
 	}
 
 

@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Cookie-OptIn-Interface
  * Plugin URI:        https://www.nickyreinert.de/coii
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Allow users to decide whether being tracked or not
  * Version:           1.0.0
  * Author:            Nicky Reinert
  * Author URI:        https://www.nickyreinert.de

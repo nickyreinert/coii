@@ -84,7 +84,7 @@ class Coii_Public {
 
 	public function show_coii_dialogue() {
 
-		debug('showing dialogue');
+		debug_coii('showing dialogue');
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/coii-public.css', array(), $this->version, 'all' );
 
@@ -105,23 +105,23 @@ class Coii_Public {
 
 		if(!isset($_COOKIE['coii_allow_tracking_pixel'])) {
 
-			debug('control cookie not set');
+			debug_coii('control cookie not set');
 
 			$this->show_coii_dialogue();
 
 		} else {
 
-			debug('control cookie is set');
+			debug_coii('control cookie is set');
 
 			if ($_COOKIE['coii_allow_tracking_pixel'] === 'yes') {
 
-				debug('enabling tracking by setting up the pixel');
+				debug_coii('enabling tracking by setting up the pixel');
 
 				echo '<script>'.$tracking_pixel.'</script>';
 
 			} else {
 
-				debug('disabled tracking, no action to take');
+				debug_coii('disabled tracking, no action to take');
 
 			}
 
