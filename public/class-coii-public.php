@@ -76,13 +76,13 @@ class Coii_Public {
 	}
 
 	/**
-	 * Display the COII dialogue at the front page
+	 * Get tracking pixels from users options and prepare them for output
 	 *
 	 * @since    1.0.0
-	 * @param      string    $tracking_pixel       the user defined tracking pixel
+	 * @param      string    $tracking_pixel_array      the prepared tracking pixels
 	 */
 
-	public function show_coii_dialogue() {
+	public function get_tracking_pixel_array() {
 
 		$default_tracking_pixel = NULL;
 
@@ -108,31 +108,22 @@ class Coii_Public {
 
 			$tracking_pixel_array[$script_index]['text'] = str_replace("\n", "", str_replace("\r", "", str_replace("'", "\"", $dirty_script->textContent)));
 
-
 		}
-		// echo '<pre>';var_dump($tracking_pixel_array);echo '</pre>';
 
+		return $tracking_pixel_array;
 
-		// $tracking_pixel_object = simplexml_load_string('<root>'.$tracking_pixel_string.'</root>');
-		//
-		// foreach ($tracking_pixel_object as $tracking_pixel) {
-		//
-		// 	debug_coii(json_encode($tracking_pixel->attributes()));
-		//
-		// }
-		// // foreach ($tracking_pixel_array->getElementsByTagName("script") as $tracking_pixel) {
-		// foreach ($tracking_pixel_object->getElementsByTagName("script") as $tracking_pixel) {
-		//
-		// 	debug_coii(json_encode($tracking_pixel->nodeValue));
-		//
-		// 	debug_coii(json_encode($tracking_pixel->attributes()));
-		//
-		// }
-		// debug_coii(json_encode($tracking_pixel_array->saveHTML()));
+	}
 
-		// $tracking_pixel  = get_option('coii_tracking_pixel',  $default_tracking_pixel, NULL);
-		//
-		// $tracking_pixel = str_replace("\n", "", str_replace("\r", "", str_replace("'", "\"", $tracking_pixel)));
+	/**
+	 * Display the COII dialogue at the front page
+	 *
+	 * @since    1.0.0
+	 * @param      string    $tracking_pixel       the user defined tracking pixel
+	 */
+
+	public function show_coii_dialogue() {
+
+		$tracking_pixel_array = $this->get_tracking_pixel_array();
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/coii-public.css', array(), $this->version, 'all' );
 
@@ -151,7 +142,7 @@ class Coii_Public {
 	 * @param      string    $allow_tracking_pixel       whether or not to allow tracking
 	 */
 
-	public function set_tracking_pixel() {
+	public function set_tracking_pixel($tracking_pixel_array) {
 
 		if(!isset($_COOKIE['coii_allow_tracking_pixel'])) {
 
@@ -166,9 +157,26 @@ class Coii_Public {
 			if ($_COOKIE['coii_allow_tracking_pixel'] === 'yes') {
 
 				// ECHO TRACKING PIXEL
+				echo '<script>(function( $ ) {"use strict";';
+				$tracking_pixel_array = $this->get_tracking_pixel_array();
 
-				echo '<script>'.$tracking_pixel.'</script>';
+				foreach ($tracking_pixel_array as $script_index => $tracking_script) { ?>
 
+					var script<?php echo $script_index; ?> = document.createElement("script");
+
+					<?php if ($tracking_script['src'] != FALSE) { ?>
+
+						$(script<?php echo $script_index; ?>).attr('src', '<?php echo $tracking_script['src']; ?>');
+
+					<?php } ?>
+
+					script<?php echo $script_index; ?>.innerHTML = '<?php echo $tracking_script['text']; ?>';
+
+					document.body.appendChild(script<?php echo $script_index; ?>);
+
+				<?php }
+
+				echo '})( jQuery );</script>';
 			}
 
 		}
