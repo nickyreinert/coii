@@ -143,6 +143,8 @@ class Coii_Loader {
 	 */
 	public function add_shortcode( $tag, $component, $callback) {
 
+		$this->shortcodes = array();
+
 		$this->shortcodes = $this->add( $this->shortcodes, $tag, $component, $callback, NULL, NULL );
 	}
 

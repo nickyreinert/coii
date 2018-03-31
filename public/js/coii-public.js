@@ -5,19 +5,19 @@
 
         $("#enable-tracking").click(function(){
 
-        	console.log('enable tracking');
+        	// console.log('enable tracking');
 
-            $("#coii-dialogue").fadeOut( "slow", function() {});
+            $("#coii-modal-dialogue").fadeOut( "slow", function() {});
 
-            createCookie('coii_allow_tracking_pixel', 'yes', 360);
+            // createCookie('coii_allow_tracking_pixel', 'yes', 360);
 
-            location.reload();
+            // location.reload();
 
         });
 
         $("#disable-tracking").click(function(){
 
-            console.log('disable tracking');
+            // console.log('disable tracking');
 
             $("#coii-dialogue").fadeOut( "slow", function() {});
 
@@ -28,23 +28,6 @@
         });
 
     });
-
-    function createCookie(name,value,days) {
-
-        if (days) {
-
-        	var date = new Date();
-            date.setTime(date.getTime()+(days*24*60*60*1000));
-            var expires = "; expires="+date.toGMTString();
-
-        } else {
-
-            var expires = "";
-
-        }
-
-        document.cookie = name+"="+value+expires+"; path=/;";
-    }
 
     /**
 	 * All of the code for your public-facing JavaScript source
@@ -75,3 +58,22 @@
 	 */
 
 })( jQuery );
+
+function createCookie(name,value,days) {
+
+    if (days) {
+
+        var date = new Date();
+
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+
+        var expires = "; expires="+date.toGMTString();
+
+    } else {
+
+        var expires = "";
+
+    }
+
+    document.cookie = name+"="+value+expires+"; path=/;";
+}

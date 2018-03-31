@@ -19,13 +19,21 @@ Besides you can use the shortcode [coii_dialogue] to place the dialogue inside a
 
 ### Known bugs
 
-COII offers default values for the dialogue, but you have to save them for yourself. Go to the settings-page of this plugin (Settings / Cookie-OptIn-Interface) and simply push the save-button. Or edit the message text. 
+COII offers default values for the dialogue, but you have to save them for yourself. Go to the settings-page of this plugin (Settings / Cookie-OptIn-Interface) and simply push the save-button. Or edit the message text.
 
 ### Changelog
 
+#### 1.1.0
+* add: do not reload page after user confirm tracking
+* add: german translation
+* add: support for more than one tracking-pixel
+* add: support for new Google's global site tag
+* fix: shortcodes-engine throws an notice because of missing property
+* remove: debugging messages, as there currently is no debug-flag in the backend
+
 #### 1.0.2
 * fix: wrong domain cookie
-* add: default values for dialogue text, yes-no-buttons 
+* add: default values for dialogue text, yes-no-buttons
 
 #### 1.0.1
 * fatal error when installing plugin because hook-function „add“
@@ -33,7 +41,7 @@ requires 6 instead of 4 parameters
 * renamed debug-functions globally
 * changed short description text
 
-#### 1.0 
+#### 1.0
 * first release with all basic features
 * opt-in dialogue for first-time visitors
 * shortcode to be used on pages / posts to opt-in for tracking

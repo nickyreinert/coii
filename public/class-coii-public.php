@@ -79,12 +79,60 @@ class Coii_Public {
 	 * Display the COII dialogue at the front page
 	 *
 	 * @since    1.0.0
-	 * @param      string    $allow_tracking_pixel       whether or not to allow tracking
+	 * @param      string    $tracking_pixel       the user defined tracking pixel
 	 */
 
 	public function show_coii_dialogue() {
 
-		debug_coii('showing dialogue');
+		$default_tracking_pixel = NULL;
+
+		$dirty_tracking_pixel  = get_option('coii_tracking_pixel',  $default_tracking_pixel, NULL);
+
+		$dirty_tracking_pixel_doc = new DOMDocument();
+
+		$dirty_tracking_pixel_doc->loadHTML($dirty_tracking_pixel);
+
+		$tracking_pixel_array = array();
+
+		foreach($dirty_tracking_pixel_doc->getElementsByTagName('script') as $script_index => $dirty_script) {
+
+			if ($dirty_script->getAttribute('src') != NULL) {
+
+				$tracking_pixel_array[$script_index]['src'] = $dirty_script->getAttribute('src');
+
+			} else {
+
+				$tracking_pixel_array[$script_index]['src'] = FALSE;
+
+			}
+
+			$tracking_pixel_array[$script_index]['text'] = str_replace("\n", "", str_replace("\r", "", str_replace("'", "\"", $dirty_script->textContent)));
+
+
+		}
+		// echo '<pre>';var_dump($tracking_pixel_array);echo '</pre>';
+
+
+		// $tracking_pixel_object = simplexml_load_string('<root>'.$tracking_pixel_string.'</root>');
+		//
+		// foreach ($tracking_pixel_object as $tracking_pixel) {
+		//
+		// 	debug_coii(json_encode($tracking_pixel->attributes()));
+		//
+		// }
+		// // foreach ($tracking_pixel_array->getElementsByTagName("script") as $tracking_pixel) {
+		// foreach ($tracking_pixel_object->getElementsByTagName("script") as $tracking_pixel) {
+		//
+		// 	debug_coii(json_encode($tracking_pixel->nodeValue));
+		//
+		// 	debug_coii(json_encode($tracking_pixel->attributes()));
+		//
+		// }
+		// debug_coii(json_encode($tracking_pixel_array->saveHTML()));
+
+		// $tracking_pixel  = get_option('coii_tracking_pixel',  $default_tracking_pixel, NULL);
+		//
+		// $tracking_pixel = str_replace("\n", "", str_replace("\r", "", str_replace("'", "\"", $tracking_pixel)));
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/coii-public.css', array(), $this->version, 'all' );
 
@@ -94,34 +142,32 @@ class Coii_Public {
 
 	}
 
+	/**
+	 * Condition checker to check if COII cookie is set and if so
+	 * if tracking is enabled
+	 * this is called in includes/class-coii.php
+	 *
+	 * @since    1.0.0
+	 * @param      string    $allow_tracking_pixel       whether or not to allow tracking
+	 */
 
 	public function set_tracking_pixel() {
 
-		// TODO - implement default tracking pixel? Maybe not, maybe yes
-
-		$default_tracking_pixel = NULL;
-
-		$tracking_pixel  = get_option('coii_tracking_pixel',  $default_tracking_pixel, NULL);
-
 		if(!isset($_COOKIE['coii_allow_tracking_pixel'])) {
 
-			debug_coii('control cookie not set');
+			// NO COII COOKIE FOUND, SO SHOW THE OPT IN DIALOGUE
 
 			$this->show_coii_dialogue();
 
 		} else {
 
-			debug_coii('control cookie is set');
+			// COII COOKIE FOUND, CHECK IF TRACKING IS ENABLED
 
 			if ($_COOKIE['coii_allow_tracking_pixel'] === 'yes') {
 
-				debug_coii('enabling tracking by setting up the pixel');
+				// ECHO TRACKING PIXEL
 
 				echo '<script>'.$tracking_pixel.'</script>';
-
-			} else {
-
-				debug_coii('disabled tracking, no action to take');
 
 			}
 
@@ -129,14 +175,23 @@ class Coii_Public {
 
 	}
 
+
+	/**
+	 * Register the shortcode that shows the dialogue at any given page
+	 * this is called in includes/class-coii.php
+	 *
+	 * @since    1.0.0
+	 */
 	public function register_shortcode() {
 
 		$this->show_coii_dialogue();
+
 	}
 
 
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
+	 * this is called in includes/class-coii.php
 	 *
 	 * @since    1.0.0
 	 */
@@ -160,6 +215,7 @@ class Coii_Public {
 
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
+	 * this is called in includes/class-coii.php
 	 *
 	 * @since    1.0.0
 	 */

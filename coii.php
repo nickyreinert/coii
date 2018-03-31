@@ -16,7 +16,7 @@
  * Plugin Name:       Cookie-OptIn-Interface
  * Plugin URI:        https://www.nickyreinert.de/coii
  * Description:       Allow users to decide whether being tracked or not
- * Version:           1.0.0
+ * Version:           1.0.3
  * Author:            Nicky Reinert
  * Author URI:        https://www.nickyreinert.de
  * License:           GPL-2.0+

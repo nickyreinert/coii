@@ -37,8 +37,9 @@ class Coii_i18n {
 		load_plugin_textdomain(
 			'coii',
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			'/coii/languages/'
 		);
+		
 
 	}
 
