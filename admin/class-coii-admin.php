@@ -56,7 +56,7 @@ class Coii_Admin {
 		 * @access 	private
 		 * @var  	string 		$default_dialogue_text 	default dialogue text
 		 */
-	private $default_dialogue_text = 'Do you want to allow tracking?';
+	private $default_dialogue_text = NULL;
 
 		/**
 		 * The default text for the accept button
@@ -87,6 +87,8 @@ class Coii_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+
+		$this->default_dialogue_text = __('Do you want to help us improving user experience by allowing tracking with Matomo / Piwik?', 'coii');
 
 	}
 
@@ -259,7 +261,7 @@ class Coii_Admin {
 	 */
 	public function coii_general()
 	{
-		echo '<p>' . __( 'Please add the tracking pixel of your desired tracking service. Just add the script-part and skip the wrapping < script > - Tags', 'coii' ) . '</p>';
+		echo '<p>' . __( 'Please add all tracking pixel of your tracking service (Matomo/Piwik, Google Analytics). Just add the complete script including it`s wrapping < script > - Tags', 'coii' ) . '</p>';
 	}
 
 	/**
@@ -286,13 +288,13 @@ class Coii_Admin {
 	public function coii_dialogue_text() {
 
 		$dialogue_text = get_option( $this->option_name . '_dialogue', NULL);
-		
+
 		if ($dialogue_text == '') {
-		
+
 			$dialogue_text = $this->default_dialogue_text;
-			
+
 		}
-		
+
 		echo '<textarea name="' . $this->option_name . '_dialogue' . '" id="' . $this->option_name . '_dialogue' . '" cols="50" rows="10"> ';
 		echo $dialogue_text;
 		echo '</textarea>';
@@ -310,11 +312,11 @@ class Coii_Admin {
 		$yes_button_text = get_option( $this->option_name . '_yes_button', NULL);
 
 		if ($yes_button_text == '') {
-		
+
 			$yes_button_text = $this->default_yes_button_text;
-			
+
 		}
-		
+
 		echo '<input type="text" value="'.$yes_button_text.'"name="' . $this->option_name . '_yes_button' . '" id="' . $this->option_name . '_yes_button' . '"/> ';
 	}
 
@@ -329,10 +331,10 @@ class Coii_Admin {
 		$no_button_text = get_option( $this->option_name . '_no_button', NULL);
 
 		if ($no_button_text == '') {
-		
+
 			$no_button_text = $this->default_no_button_text;
-			
-		}		
+
+		}
 
 		echo '<input type="text" value="'.$no_button_text.'" name="' . $this->option_name . '_no_button' . '" id="' . $this->option_name . '_no_button' . '"/> ';
 
