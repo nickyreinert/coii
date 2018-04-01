@@ -26,6 +26,7 @@ COII offers default values for the dialogue, but you have to save them for yours
 #### 1.1.1
 * fix: pixels not fired after cookies was set
 * add: default text
+* fix: plenk / header already sent
 
 #### 1.1.0
 * add: do not reload page after user confirm tracking

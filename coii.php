@@ -103,7 +103,4 @@ function debug_coii($message = NULL, $priority = 1 ){
 	}
 }
 
-
-
-
 run_coii();
