@@ -23,6 +23,9 @@ COII offers default values for the dialogue, but you have to save them for yours
 
 ### Changelog
 
+#### 1.1.2
+* fix: empty po/mo-files, wrong i18n-folder declaration
+
 #### 1.1.1
 * fix: pixels not fired after cookies was set
 * add: default text

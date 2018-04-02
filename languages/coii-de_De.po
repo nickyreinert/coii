@@ -1,0 +1,80 @@
+# Copyright (C) 2018 Cookie-OptIn-Interface
+# This file is distributed under the same license as the Cookie-OptIn-Interface package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cookie-OptIn-Interface 1.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/coii\n"
+"POT-Creation-Date: 2018-04-01 07:12:35+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-04-02 10:54+0200\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Nicky Reinert <mail@nickyreinert.de>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+#: admin/class-coii-admin.php:91
+msgid ""
+"Do you want to help us improving user experience by allowing tracking with "
+"Matomo / Piwik?"
+msgstr ""
+"Möchtest du uns helfen diese Seite zu verbessern und das Tracking mit "
+"Matomo / Piwik aktivieren?"
+
+#: admin/class-coii-admin.php:150
+msgid "Cookie-OptIn-Interface Settings"
+msgstr "Cookie-OptIn-Interface Einstellungen"
+
+#. Plugin Name of the plugin/theme
+#: admin/class-coii-admin.php:151
+msgid "Cookie-OptIn-Interface"
+msgstr "Cookie-OptIn-Interface"
+
+#: admin/class-coii-admin.php:178
+msgid "General"
+msgstr "Allgemein"
+
+#: admin/class-coii-admin.php:189
+msgid "Tracking-Pixel"
+msgstr "Tracking-Pixel"
+
+#: admin/class-coii-admin.php:207
+msgid "Dialogue Text"
+msgstr "Dialog-Text"
+
+#: admin/class-coii-admin.php:225
+msgid "Yes Button"
+msgstr "Bestätigungs-Button"
+
+#: admin/class-coii-admin.php:243
+msgid "No Button"
+msgstr "Ablehnen-Button"
+
+#: admin/class-coii-admin.php:264
+msgid ""
+"Please add all tracking pixel of your tracking service (Matomo/Piwik, Google "
+"Analytics). Just add the complete script including it`s wrapping < script > "
+"- Tags"
+msgstr ""
+"Bitte hier alle Tracking-Pixel des Anbieters (Matomo/Piwik, Google "
+"Analytics) angeben. Dazu einfach das komplette Script mit den umschließenden "
+"< script > - Tags einfügen."
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.nickyreinert.de/coii"
+msgstr "https://www.nickyreinert.de/coii"
+
+#. Description of the plugin/theme
+msgid "Allow users to decide whether being tracked or not"
+msgstr ""
+"Dem Benutzer entscheiden lassen, ob er getrackt werden möchte oder nicht."
+
+#. Author of the plugin/theme
+msgid "Nicky Reinert"
+msgstr "Nicky Reinert"
+
+#. Author URI of the plugin/theme
+msgid "https://www.nickyreinert.de"
+msgstr "https://www.nickyreinert.de/coii"
